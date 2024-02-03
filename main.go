@@ -48,18 +48,6 @@ func main() {
 	// sitemap
 	r.Get("/sitemap.xml", routes.Sitemap)
 
-	r.Get("/apple-touch-icon.png", func(w http.ResponseWriter, r *http.Request) {
-		file, err := os.ReadFile("./public/images/apple-touch-icon.png")
-		if err != nil {
-			fmt.Println(err)
-			w.WriteHeader(404)
-			w.Write([]byte("Could not find"))
-			return
-		}
-		w.Header().Set("Content-Type", "image/png")
-		w.Write(file)
-	})
-
 	// routes
 	r.NotFound(routes.NotFound)
 	r.Get("/error", routes.Error)

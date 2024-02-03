@@ -49,6 +49,15 @@
 
 <body data-theme="base_theme" class="min-h-screen flex flex-col justify-between">
     <!-- Base scripts -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F3TQ9EJYN7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-F3TQ9EJYN7');
+    </script>
 
     <!-- Page defined sripts -->
     {{block "script" .}}{{end}}

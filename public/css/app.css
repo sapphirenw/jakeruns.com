@@ -1709,11 +1709,6 @@ html {
   z-index: 0;
 }
 
-.my-4 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
 .my-\[80px\] {
   margin-top: 80px;
   margin-bottom: 80px;
@@ -2093,11 +2088,6 @@ html {
     grid-column: span 5 / span 5;
   }
 
-  .md\:my-8 {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
-
   .md\:ml-4 {
     margin-left: 1rem;
   }
@@ -2125,11 +2115,6 @@ html {
 
   .md\:justify-self-end {
     justify-self: end;
-  }
-
-  .md\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
   }
 
   .md\:text-6xl {
