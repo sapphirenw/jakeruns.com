@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+
+<head>
+    <!-- template defined title -->
+    {{block "title" .}}<title>Jake Runs</title>{{end}}
+
+    <!-- Template overriden header values, defaults inside block -->
+    {{block "head" .}}
+    <meta name="description"
+        content="A collection of thoughts about what it is like to train for a long distance run." />
+    <meta name="keywords"
+        content="Running, Marathon Training, Long Distance Running, Running Schedule, Personal Training, Distance Running">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jakeruns.com" />
+    <meta property="og:site_name" content="Jake Runs" />
+    <meta property="og:title" content="Jake Runs" />
+    <meta property="og:description"
+        content="A collection of thoughts about what it is like to train for a long distance run." />
+    <meta property="og:image" content="https://talk.portlandai.io/public/images/favicon.ico" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="https://jakeruns.com" />
+    <meta name="twitter:creator" content="@creator" />
+    <meta name="twitter:title" content="Jake Runs" />
+    <meta name="twitter:description"
+        content="A collection of thoughts about what it is like to train for a long distance run." />
+    {{end}}
+
+    <!-- Sitewide headers -->
+    <meta charset="utf-8">
+    <meta name="author" content="Jake Landers" />
+    <link rel="author" href="https://sapphirenw.com" />
+    <meta name="color-scheme" content="light" />
+    <meta name="creator" content="Jake Landers" />
+    <meta name="publisher" content="SapphireNW" />
+    <meta name="referrer" content="origin-when-cross-origin" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="robots" content="index, follow" />
+
+    <link rel="icon" href="/favicon.ico" />
+
+    <link rel="stylesheet" href="../public/css/app.css">
+    <link rel="stylesheet" href="../public/css/icons.css">
+</head>
+
+<body data-theme="base_theme" class="min-h-screen flex flex-col justify-between">
+    <!-- Base scripts -->
+
+    <!-- Page defined sripts -->
+    {{block "script" .}}{{end}}
+
+    <!-- Content -->
+    <div class="p-4 safe-area w-full my-[80px] z-0">
+        {{block "content" .}}{{end}}
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer items-center p-4 text-neutral bg-neutral-content">
+        <div class="safe-area w-[100%] flex items-center justify-between">
+            <aside class="items-center flex space-x-2">
+                <img src="/public/images/sapphirenw.png" alt="SapphireNw" class="h-[30px] w-[30px] object-scale-down" />
+                <p>Copyright © 2023 - All right reserved</p>
+            </aside>
+            <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+                <a href="https://www.linkedin.com/company/89925639" target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        class="fill-current md:hover:opacity-50 transition-opacity" viewBox="0 0 24 24">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- scripts that should run after page render -->
+    {{block "endscript" .}}{{end}}
+</body>
+
+</html>

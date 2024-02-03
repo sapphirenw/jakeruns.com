@@ -1,0 +1,45 @@
+{{extends "base.html"}}
+
+{{define "content"}}
+
+<div class="pb-[100px] space-y-8">
+    <div class="text-center grid place-items-center gap-2">
+        <h2 class="text-5xl md:text-7xl font-bold">Jake Runs 🏃</h2>
+        <p class="text-lg text-gray-500 max-w-2xl font-light">
+            Hi! My name is Jake, and I am training for the <a
+                href="https://www.montpellier-tourisme.fr/decouvrir/festive/top-des-evenements-rdvs-sportifs/le-marathon-de-montpellier/"
+                target="_blank" rel="noopener noreferrer" class="link link-primary">Montepllier Marathon</a> on
+            April 7th, 2024. I am new to long distance running, and these are the collections of my thoughts while I
+            embark on
+            this new experience!
+        </p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-4">
+        <a href="/why">
+            <div class="bg-base-300 rounded-md p-4 text-center hover:opacity-50 transition-opacity">
+                🤦‍♂️ Why a Marathon?
+            </div>
+        </a>
+        <a href="/schedule">
+            <div class="bg-base-300 rounded-md p-4 text-center hover:opacity-50 transition-opacity">
+                🗓️ My Training Schedule
+            </div>
+        </a>
+        <a href="https://jakelanders.com" target="_blank" rel="noopener noreferrer">
+            <div class="bg-base-300 rounded-md p-4 text-center hover:opacity-50 transition-opacity">
+                👱‍♂️ About Me :)
+            </div>
+        </a>
+    </div>
+
+    <div class="grid place-items-center">
+        <div class="grid max-w-2xl gap-8">
+            {{ range $idx, $item := .Articles }}
+            {{ template "articleCell.html" $item }}
+            {{ end }}
+        </div>
+    </div>
+
+</div>
+
+{{end}}

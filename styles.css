@@ -1,0 +1,29 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+    html {
+        @apply text-txt scroll-smooth scroll-pt-[40px];
+    }
+
+    /* input, textarea {
+        @apply relative border-b-2 border-cell-500 bg-transparent px-4 py-1 w-[100%];
+        background-image: linear-gradient(to right, #418a2f, #418a2f);
+        background-size: 0 2px;
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        transition: background-size 0.2s ease-in-out;
+    }
+    
+    input:focus, textarea:focus {
+        @apply outline-none;
+        background-size: 100% 2px;
+    } */
+}
+
+@layer components {
+    .safe-area {
+        @apply max-w-[1000px] mx-auto 2xl:max-w-[1300px]
+    }
+}

@@ -1,0 +1,30 @@
+CREATE TABLE Article(
+    articleId INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    description VARCHAR(1000) NOT NULL,
+    content TEXT NOT NULL,
+    author VARCHAR(255) DEFAULT 'Jake Landers',
+    tags TEXT NOT NULL,
+
+    created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Comment(
+    articleId INT NOT NULL,
+    commentId INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL DEFAULT "Anonymous",
+    email VARCHAR(255),
+    content TEXT NOT NULL,
+
+    FOREIGN KEY (articleId) REFERENCES Article(articleId) ON DELETE CASCADE,
+
+    created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE UNIQUE INDEX article_title ON Article(title);
+CREATE UNIQUE INDEX article_created ON Article(created);
+
+CREATE USER 'jakeruns'@'%' IDENTIFIED BY '...';
+GRANT ALL ON jakeruns.* TO 'jakeruns'@'%';

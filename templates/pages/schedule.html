@@ -1,0 +1,55 @@
+{{extends "base.html"}}
+
+{{define "script"}}
+
+<script>
+    function scrollToCurrentWeek() {
+        var element = document.getElementById("{{.currentIndex}}");
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+</script>
+
+{{end}}
+
+{{define "endscript"}}
+
+<script>
+    scrollToCurrentWeek()
+</script>
+
+{{end}}
+
+{{define "content"}}
+
+<div class="grid place-items-center">
+    <div class="max-w-3xl w-full">
+        <div class="pb-8 space-y-4 grid place-items-center">
+            <h2 class="text-center text-4xl md:text-6xl font-bold">Schedule</h2>
+            <p class="text-center text-lg">This is the general outline of the schedule my aunt made for me. I do not
+                follow this schedule exactly
+                depending on how my body feels and such. I will attempt to link any of the articles I write about
+                the particular day on this page, and they will give better context into what I ACTUALLY did that day :)
+            </p>
+            <div class="flex space-x-4">
+                <a href="/">
+                    <div class="btn btn-primary text-white">Back to Home</div>
+                </a>
+                <button onClick={scrollToCurrentWeek()}>
+                    <div class="btn btn-neutral">Current Week</div>
+                </button>
+            </div>
+        </div>
+        <div class="space-y-8">
+            {{ range $idx, $item := .weeks }}
+            <div id="{{$idx}}" class="{{if gt $.currentIndex $idx}} opacity-50 {{end}}">
+                <h3 class="text-3xl font-bold">Week {{ add $idx 1 }}</h3>
+                {{ template "scheduleCell.html" $item }}
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</div>
+
+{{end}}

@@ -1,0 +1,20 @@
+<div class="overflow-y-scroll max-h-[90vh]">
+    <div class="pb-4">
+        <div class="">
+            {{ range $idx, $item := . }}
+            <ul class="">
+                <li class="">
+                    <a class="btn btn-neutral w-full mt-2" href="#{{$item.Slug}}">
+                        {{$item.Title}}
+                    </a>
+                </li>
+                {{if ne (len $item.Children) 0}}
+                <div class="">
+                    {{template "markdownHeader.html" $item.Children}}
+                </div>
+                {{end}}
+            </ul>
+            {{ end }}
+        </div>
+    </div>
+</div>
