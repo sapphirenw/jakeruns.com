@@ -19,6 +19,10 @@ import (
 var db *sqlx.DB
 
 func getDB() (*sqlx.DB, error) {
+	if db != nil {
+		return db, nil
+	}
+
 	host := os.Getenv("MYSQL_HOST")
 	user := os.Getenv("MYSQL_USER")
 	pass := os.Getenv("MYSQL_PASS")
