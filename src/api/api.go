@@ -34,8 +34,9 @@ func getDB() (*sqlx.DB, error) {
 	connStr := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", user, pass, host, "3306", "jakeruns")
 
 	maxRetries := 5
+	var err error
 	for i := 0; i < maxRetries; i++ {
-		db, err := sqlx.Connect("mysql", connStr)
+		db, err = sqlx.Connect("mysql", connStr)
 		if err == nil {
 			return db, nil
 		}
@@ -45,7 +46,7 @@ func getDB() (*sqlx.DB, error) {
 	}
 
 	if db == nil {
-		return nil, fmt.Errorf("database connection not established")
+		return nil, fmt.Errorf("database connection not established after retries")
 	}
 
 	return db, nil
